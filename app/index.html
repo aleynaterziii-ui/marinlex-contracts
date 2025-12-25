@@ -32,5 +32,15 @@ Taraflar şartları kabul eder.`;
 }
 <button onclick="downloadPDF()">PDF olarak indir</button>
 </script>
+ function downloadPDF() {
+    const text = document.getElementById("output").textContent;
+
+    const element = document.createElement('a');
+    const file = new Blob([text], {type: 'application/pdf'});
+    element.href = URL.createObjectURL(file);
+    element.download = "marinlex-sozlesme.pdf";
+    document.body.appendChild(element);
+    element.click();
+}
 </body>
 </html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Marinlex – Sözleşme Oluştur</title>
+</head>
+<body>
+<h2>Hizmet Sözleşmesi Oluştur</h2>
+<label>Ad Soyad</label><br>
+<input id="name"><br><br>
+<label>T.C. Kimlik No</label><br>
+<input id="tc"><br><br>
+<label>Hizmet Bedeli (TL)</label><br>
+<input id="fee"><br><br>
+<label>Tarih</label><br>
+<input type="date" id="date"><br><br>
+<button onclick="generate()">Sözleşme Oluştur</button>
+<pre id="output"></pre>
+<script>
+function generate(){
+ const name = document.getElementById("name").value;
+ const tc = document.getElementById("tc").value;
+ const fee = document.getElementById("fee").value;
+ const date = document.getElementById("date").value;
+ document.getElementById("output").textContent =
+`HİZMET SÖZLEŞMESİ
+Taraflar:
+Hizmet Alan: ${name} (T.C.: ${tc})
+İşbu sözleşme ${date} tarihinde akdedilmiştir.
+Hizmet Bedeli: ${fee} TL
+Taraflar şartları kabul eder.`;
+}
+</script>
+</body>
+</html>

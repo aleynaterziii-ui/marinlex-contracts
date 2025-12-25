@@ -32,7 +32,9 @@ Taraflar şartları kabul eder.`;
 }
 <button onclick="downloadPDF()">PDF olarak indir</button>
 </script>
- function downloadPDF() {
+</body>
+</html>
+function downloadPDF() {
     const text = document.getElementById("output").textContent;
 
     const element = document.createElement('a');
@@ -42,5 +44,3 @@ Taraflar şartları kabul eder.`;
     document.body.appendChild(element);
     element.click();
 }
-</body>
-</html>

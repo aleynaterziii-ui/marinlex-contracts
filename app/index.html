@@ -30,17 +30,18 @@ Hizmet Alan: ${name} (T.C.: ${tc})
 Hizmet Bedeli: ${fee} TL
 Taraflar şartları kabul eder.`;
 }
-<button onclick="downloadPDF()">PDF olarak indir</button>
+function downloadPDF() {
+ const text = document.getElementById("output").textContent;
+ const element = document.createElement('a');
+ const file = new Blob([text], {type: 'application/pdf'});
+ element.href = URL.createObjectURL(file);
+ element.download = "marinlex-sozlesme.pdf";
+ document.body.appendChild(element);
+ element.click();
+}
 </script>
 </body>
 </html>
-function downloadPDF() {
-    const text = document.getElementById("output").textContent;
+<button onclick="generate()">Sözleşme Oluştur</button>
+<button onclick="downloadPDF()">PDF olarak indir</button>
 
-    const element = document.createElement('a');
-    const file = new Blob([text], {type: 'application/pdf'});
-    element.href = URL.createObjectURL(file);
-    element.download = "marinlex-sozlesme.pdf";
-    document.body.appendChild(element);
-    element.click();
-}
